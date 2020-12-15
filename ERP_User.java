@@ -16,6 +16,7 @@ public class ERP_User extends javax.swing.JFrame {
     static javax.swing.JFrame Salary;
     static javax.swing.JFrame Transaction;
     static javax.swing.JFrame Goods;
+    static javax.swing.JFrame Order;
     DBMan DBM = new DBMan();
     String strSQL = "Select * From Employee ";
     int iCntRow = 0;
@@ -96,6 +97,7 @@ public class ERP_User extends javax.swing.JFrame {
         rbtnTrans = new javax.swing.JRadioButton();
         rbtnEmp = new javax.swing.JRadioButton();
         rbtnGoods = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -224,6 +226,14 @@ public class ERP_User extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("발주");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
@@ -248,7 +258,7 @@ public class ERP_User extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(329, 329, 329)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
+                                .addGap(18, 18, 18)
                                 .addComponent(rbtnEmp)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbtnSal)
@@ -256,6 +266,8 @@ public class ERP_User extends javax.swing.JFrame {
                                 .addComponent(rbtnTrans)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbtnGoods)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane1))
                         .addContainerGap())
@@ -272,11 +284,9 @@ public class ERP_User extends javax.swing.JFrame {
                             .addComponent(txtdeptno, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtempno, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18))
+                                    .addComponent(txtempno, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtrank, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8)
@@ -301,12 +311,15 @@ public class ERP_User extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbtnSal)
-                    .addComponent(rbtnTrans)
-                    .addComponent(rbtnEmp)
-                    .addComponent(rbtnGoods))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rbtnGoods)
+                        .addComponent(jRadioButton1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbtnSal)
+                        .addComponent(rbtnTrans)
+                        .addComponent(rbtnEmp)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -392,32 +405,44 @@ public class ERP_User extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void rbtnEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnEmpActionPerformed
-            User.setVisible(true);
-            Salary.setVisible(false);
-            Transaction.setVisible(false);
-            Goods.setVisible(false);
+            Login1.User.setVisible(true);
+            Login1.Salary.setVisible(false);
+            Login1.Transaction.setVisible(false);
+            Login1.Goods.setVisible(false);
+            Login1.Order.setVisible(false);
     }//GEN-LAST:event_rbtnEmpActionPerformed
 
     private void rbtnSalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnSalActionPerformed
-            User.setVisible(false);
-            Salary.setVisible(true);
-            Transaction.setVisible(false);        
-            Goods.setVisible(false);
+            Login1.User.setVisible(false);
+            Login1.Salary.setVisible(true);
+            Login1.Transaction.setVisible(false);        
+            Login1.Goods.setVisible(false);
+            Login1.Order.setVisible(false);
     }//GEN-LAST:event_rbtnSalActionPerformed
 
     private void rbtnTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTransActionPerformed
-            User.setVisible(false);
-            Salary.setVisible(false);
-            Transaction.setVisible(true);
-            Goods.setVisible(false);
+            Login1.User.setVisible(false);
+            Login1.Salary.setVisible(false);
+            Login1.Transaction.setVisible(true);
+            Login1.Goods.setVisible(false);
+            Login1.Order.setVisible(false);
     }//GEN-LAST:event_rbtnTransActionPerformed
 
     private void rbtnGoodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnGoodsActionPerformed
-            User.setVisible(false);
-            Salary.setVisible(false);
-            Transaction.setVisible(false);
-            Goods.setVisible(true);
+            Login1.User.setVisible(false);
+            Login1.Salary.setVisible(false);
+            Login1.Transaction.setVisible(false);
+            Login1.Goods.setVisible(true);
+            Login1.Order.setVisible(false);
     }//GEN-LAST:event_rbtnGoodsActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        Login1.User.setVisible(false);
+        Login1.Salary.setVisible(false);
+        Login1.Transaction.setVisible(false);
+        Login1.Goods.setVisible(false);
+        Login1.Order.setVisible(true);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,6 +483,8 @@ public class ERP_User extends javax.swing.JFrame {
                 Salary.setVisible(false);
                 Transaction.setVisible(false);
                 Goods.setVisible(false);
+                Order = new ERP_Order();
+                Order.setVisible(false);
             }
         });
     }
@@ -479,6 +506,7 @@ public class ERP_User extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton rbadmin;
